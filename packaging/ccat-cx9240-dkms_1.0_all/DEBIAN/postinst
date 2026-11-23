@@ -1,0 +1,22 @@
+#!/bin/sh
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Manufacturing Automation, LLC
+set -e
+NAME=ccat-cx9240; VER=1.0
+if [ "$1" = configure ]; then
+	dkms status -m $NAME -v $VER 2>/dev/null | grep -q . || dkms add -m $NAME -v $VER
+	dkms build -m $NAME -v $VER
+	dkms install -m $NAME -v $VER --force
+	systemctl daemon-reload || true
+	networkctl reload 2>/dev/null || true
+	systemctl enable ccat-ecat.service || true
+	systemctl restart ccat-ecat.service || echo "ccat-ecat: start failed - see 'journalctl -u ccat-ecat'"
+	# UPS: add the path entry now if CODESYS is installed, and watch for a later install
+	/usr/lib/ccat-cx9240/codesys-ups-setup.sh add || true
+	systemctl enable ccat-ups-codesys.path || true
+	systemctl restart ccat-ups-codesys.path || true
+	# TC LED: green while CODESYS runs the bus, red otherwise
+	systemctl enable codesys-tcled.service || true
+	systemctl restart codesys-tcled.service || true
+	echo "ccat-cx9240: internal EtherCAT master is eth0. Restart codesyscontrol (or reboot) so CODESYS sees it."
+fi

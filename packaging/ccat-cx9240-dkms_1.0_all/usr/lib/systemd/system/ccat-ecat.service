@@ -1,0 +1,13 @@
+[Unit]
+Description=CX9240 internal EtherCAT master (CCAT) as eth0
+Before=codesyscontrol.service
+After=systemd-modules-load.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/ccat-cx9240/ccat-ecat-start.sh
+ExecStop=/bin/sh -c 'ip link set eth0 down; rmmod ccat_cx_shim ccat_netdev ccat'
+
+[Install]
+WantedBy=multi-user.target

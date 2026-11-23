@@ -1,0 +1,9 @@
+[Unit]
+Description=Watch for the CODESYS runtime config to add the CX9240 UPS path entry
+
+[Path]
+PathExists=/etc/codesyscontrol/CODESYSControl_User.cfg
+Unit=ccat-ups-codesys.service
+
+[Install]
+WantedBy=multi-user.target

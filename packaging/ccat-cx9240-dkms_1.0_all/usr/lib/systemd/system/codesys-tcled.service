@@ -1,0 +1,12 @@
+[Unit]
+Description=Show CODESYS run/stop state on the CX9240 TC LED (green = run, red = stop)
+After=ccat-ecat.service
+
+[Service]
+ExecStartPre=/sbin/modprobe ccat_tcled
+ExecStart=/usr/lib/ccat-cx9240/codesys-tcled.sh
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

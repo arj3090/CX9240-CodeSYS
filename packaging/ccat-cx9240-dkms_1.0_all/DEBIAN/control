@@ -1,0 +1,17 @@
+Package: ccat-cx9240-dkms
+Version: 1.0-7
+Architecture: all
+Section: kernel
+Priority: optional
+Maintainer: CX9240 bench build <root@localhost>
+Depends: dkms (>= 2.1.0.0), linux-headers-bhf, gcc, make, kmod, iproute2
+Conflicts: tc31-xar-um
+Description: Linux netdev driver for the Beckhoff CX9240 internal EtherCAT master, with UPS support files
+ Enables the CX9240's internal EtherCAT master (CCAT FPGA function 0x14 at
+ 0xA0020000) and exposes it as network interface eth0, so a Linux EtherCAT
+ master such as CODESYS Control can drive the EL terminals without TwinCAT.
+ Based on the public Beckhoff CCAT driver plus a reverse-engineered enable
+ sequence and platform DMA wiring (16 MB aligned DMA bases).
+ .
+ Needs the kernel headers of the running kernel (linux-headers-*-bhf) and
+ about 64 MB of free CMA memory. Verified only on one CX9240 with an EL2008.

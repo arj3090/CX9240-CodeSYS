@@ -1,0 +1,6 @@
+# Keep DHCP off the internal EtherCAT bus (the CCAT master netdev is eth0; built-in ports are end0/end1)
+[Match]
+Name=eth0
+
+[Link]
+Unmanaged=yes

@@ -1,0 +1,7 @@
+[Unit]
+Description=Add the CX9240 UPS path entry to the CODESYS runtime config
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/lib/ccat-cx9240/codesys-ups-setup.sh add

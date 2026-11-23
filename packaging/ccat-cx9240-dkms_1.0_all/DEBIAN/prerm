@@ -1,0 +1,16 @@
+#!/bin/sh
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Manufacturing Automation, LLC
+set -e
+NAME=ccat-cx9240; VER=1.0
+if [ "$1" = remove ] || [ "$1" = upgrade ] || [ "$1" = deconfigure ]; then
+	systemctl disable --now codesys-tcled.service 2>/dev/null || true
+	rmmod ccat_tcled 2>/dev/null || true
+	systemctl disable --now ccat-ups-codesys.path 2>/dev/null || true
+	systemctl stop ccat-ups-codesys.service 2>/dev/null || true
+	systemctl disable --now ccat-ecat.service 2>/dev/null || true
+	dkms remove -m $NAME -v $VER --all 2>/dev/null || true
+fi
+if [ "$1" = remove ]; then
+	/usr/lib/ccat-cx9240/codesys-ups-setup.sh remove || true
+fi
