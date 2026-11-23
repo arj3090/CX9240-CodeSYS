@@ -86,8 +86,7 @@ The CX9240's internal UPS is a kernel device (`/sys/class/power_supply/ups`, `st
   fbUps : FB_CX9240_UpsRetain;
   fbUps();
   ```
-  (Up to package 1.0-4 this was two blocks, `FB_CX9240_Ups` and `FB_CX9240_RetainSave`. They
-  are still in the project's `ups_test` folder.)
+  (Up to package 1.0-4 this was two separate blocks, `FB_CX9240_Ups` and `FB_CX9240_RetainSave`.)
 
 Measured on one unit (details in `UPS.md`): the controller runs about 6 s after supply loss,
 the E-bus terminals lose power about 5 ms after the signal, and saving 4 KB of retain data and
@@ -203,5 +202,5 @@ driver source itself, also bump
   directly.
 - Version 1.0-6: the package's own README replaced by a short one. No other change from 1.0-5.
   **Not** installed on a controller.
-- Version 1.0-7: licence and copyright header lines added to the project's own source files and
+- Version 1.0-7: licence and copyright header lines added to the source files written for this project and
   scripts. Comment lines only; no change to any code. **Not** installed on a controller.

@@ -198,7 +198,7 @@ Use 1000 or higher.
 ### Optional: keep data through a power cut
 
 1. **Library Manager**: add **SysFile** and **CmpApp**.
-2. Add a function block named `FB_CX9240_UpsRetain`, and paste in the contents of the file `FB_CX9240_UpsRetain.st`.
+2. Add a function block named `FB_CX9240_UpsRetain`, and paste in the contents of the file `FB_CX9240_UpsRetain.st`, which is in the `ups_test` folder of this repository.
 3. In your program, declare the data to keep under `VAR RETAIN`, and add:
 
 ```

@@ -48,8 +48,8 @@ Steps the author of this guide did not perform or watch are marked **not verifie
 ### Files
 
 - **The Beckhoff RT Linux image for the CX9240.** Tested build: `Beckhoff-RT-Linux-440542-cx9240-arm64.img`, 1.5 GB.
-- **The driver package**, `ccat-cx9240-dkms_1.0-7_all.deb`, from the `packaging` folder of the project.
-- **The function block** `FB_CX9240_UpsRetain.st`, which combines the UPS signal and the RETAIN save in one block. It is in the project's `ups_test` folder, and the package also installs a copy on the controller under `/usr/share/doc/ccat-cx9240-dkms/examples/`.
+- **The driver package**, `ccat-cx9240-dkms_1.0-7_all.deb`, from the `packaging` folder of this repository, or from its Releases page.
+- **The function block** `FB_CX9240_UpsRetain.st`, which combines the UPS signal and the RETAIN save in one block. It is in the `ups_test` folder of this repository, and the package also installs a copy on the controller under `/usr/share/doc/ccat-cx9240-dkms/examples/`.
 
 > The CODESYS runtime runs in **demo mode** without a licence: fully functional, but it stops after about two hours and has to be restarted. That is how it was used for all the testing described here.
 

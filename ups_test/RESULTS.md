@@ -1,5 +1,7 @@
 # CX9240 internal UPS — power-loss measurement
 
+> The raw log files named in this document (`stream_run*.log`, `disk_run*.log`) are not part of this repository; the tables below hold what was read from them.
+
 ## Interface (Beckhoff RT Linux, kernel 7.2.13-rt5-bhf)
 - Device: `/sys/class/power_supply/ups` (kernel `gpio-charger`, device tree node `/ups`).
 - `status`: `Charging` with supply present, `Not charging` after supply loss. Backed by GPIO 17

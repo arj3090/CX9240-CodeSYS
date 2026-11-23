@@ -173,7 +173,7 @@ Open each terminal's **EtherCAT I/O Mapping** tab to see its addresses, and use 
 ### Optional: keep data through a power cut
 
 1. **Library Manager**: add **SysFile** and **CmpApp**.
-2. Add a function block named `FB_CX9240_UpsRetain`, and paste in the contents of the file `FB_CX9240_UpsRetain.st`. The file is in the project's `ups_test` folder; the driver package also puts a copy on the controller in `/usr/share/doc/ccat-cx9240-dkms/examples/`.
+2. Add a function block named `FB_CX9240_UpsRetain`, and paste in the contents of the file `FB_CX9240_UpsRetain.st`. The file is in the `ups_test` folder of this repository; the driver package also puts a copy on the controller in `/usr/share/doc/ccat-cx9240-dkms/examples/`.
 3. In your program, declare the data to keep under `VAR RETAIN`, and add:
 
 ```
